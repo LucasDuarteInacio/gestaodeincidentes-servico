@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.ITIL.GestaoDeIncidentes.entity.Area;
+import com.ITIL.GestaoDeIncidentes.entity.Categoria;
 import com.ITIL.GestaoDeIncidentes.exception.ApiException;
-import com.ITIL.GestaoDeIncidentes.repository.AreaRepository;
+import com.ITIL.GestaoDeIncidentes.repository.CategoriaRepository;
 
 @Service
-public class AreaService {
+public class CategoriaService {
 	
 	
 	@Autowired
-	AreaRepository repository;
+	CategoriaRepository repository;
 	
 	
-	public Area addArea(Area area) {
+	public Categoria addArea(Categoria area) {
 		
 		String descricaoValida = repository.findByDescricao(area.getDescricao());
 		
@@ -29,7 +29,7 @@ public class AreaService {
 		return repository.save(area);
 	}
 	
-	public List<Area> findAll() {
+	public List<Categoria> findAll() {
 		return repository.findAll();
 	}
 

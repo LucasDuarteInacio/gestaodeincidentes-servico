@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ITIL.GestaoDeIncidentes.entity.Area;
-import com.ITIL.GestaoDeIncidentes.service.AreaService;
+import com.ITIL.GestaoDeIncidentes.entity.Categoria;
+import com.ITIL.GestaoDeIncidentes.service.CategoriaService;
 
 @RestController
-@RequestMapping("area")
-public class AreaCrontroller {
+@RequestMapping("categoria")
+public class CategoriaCrontroller {
 	
 	
 	@Autowired
-	AreaService service;
+	CategoriaService service;
 	
 	
 	@PostMapping
-	public Area addArea(@RequestBody Area area) {
+	public Categoria addArea(@RequestBody Categoria area) {
 		return service.addArea(area);
 	}
 	
 	@GetMapping
-	public List<Area> getArea() {
+	public List<Categoria> getArea() {
 		return service.findAll();
 	}
 

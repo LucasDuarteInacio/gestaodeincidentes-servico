@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Chat {
+public class Log {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +20,9 @@ public class Chat {
 	private Usuario ususario;
 	
 	
-	public Chat() {}
+	public Log() {}
 	
-	public Chat(Date data, String mensagem, Usuario ususario) {
+	public Log(Date data, String mensagem, Usuario ususario) {
 		this.data = data;
 		this.mensagem = mensagem;
 		this.ususario = ususario;

@@ -6,15 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Area {
+public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
-	public Area() {}
+	public Categoria() {}
 
-	public Area( String descricao) {
+	public Categoria( String descricao) {
 		this.descricao = descricao;
 	}
 	
