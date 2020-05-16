@@ -1,29 +1,30 @@
 package com.ITIL.GestaoDeIncidentes.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Categoria {
+public class Calendario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String descricao;
-	@OneToOne
-	private Calendario calendario;
-		
+	@OneToMany
+	private List<DiaSemana> diaSemana;
 	
-	public Categoria() {}
-
-
-	public Categoria(String descricao, Calendario calendario) {
+	public Calendario() {}
+	
+	
+	public Calendario(String descricao, List<DiaSemana> diaSemana) {
 		super();
 		this.descricao = descricao;
-		this.calendario = calendario;
+		this.diaSemana = diaSemana;
 	}
 
 
@@ -47,19 +48,16 @@ public class Categoria {
 	}
 
 
-	public Calendario getCalendario() {
-		return calendario;
+	public List<DiaSemana> getDiaSemana() {
+		return diaSemana;
 	}
 
 
-	public void setCalendario(Calendario calendario) {
-		this.calendario = calendario;
+	public void setDiaSemana(List<DiaSemana> diaSemana) {
+		this.diaSemana = diaSemana;
 	}
 	
 	
 
 	
-
-	
-
 }
