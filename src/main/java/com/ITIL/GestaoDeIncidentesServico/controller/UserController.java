@@ -58,5 +58,4 @@ public class UserController {
 		return service.findById(id);
 	}
 	
-
-}
+	}

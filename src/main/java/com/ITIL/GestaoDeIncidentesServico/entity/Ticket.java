@@ -1,6 +1,7 @@
 package com.ITIL.GestaoDeIncidentesServico.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,18 +20,17 @@ public class Ticket {
     private Subject subject;
     private String description;
     private String status;
-    @OneToOne
-    private Level level;
+    private String level;
     private String priority;
     @OneToMany
-    private List<Log> log;
+    private List<Log> log = new ArrayList<>();
     @OneToMany
     private List<Archive> archive;
 
     public Ticket() {
     }
 
-    public Ticket(Integer id, User user, User responsible, Date date, Subject subject, String description, String status, Level level, String priority, List<Log> log, List<Archive> archive) {
+    public Ticket(Integer id, User user, User responsible, Date date, Subject subject, String description, String status, String level, String priority, List<Log> log, List<Archive> archive) {
         this.id = id;
         this.user = user;
         this.responsible = responsible;
@@ -72,9 +72,7 @@ public class Ticket {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    public void setDate(Date date) { this.date = date; }
 
     public Subject getSubject() {
         return subject;
@@ -100,11 +98,11 @@ public class Ticket {
         this.status = status;
     }
 
-    public Level getLevel() {
+    public String getLevel() {
         return level;
     }
 
-    public void setLevel(Level level) {
+    public void setLevel(String level) {
         this.level = level;
     }
 

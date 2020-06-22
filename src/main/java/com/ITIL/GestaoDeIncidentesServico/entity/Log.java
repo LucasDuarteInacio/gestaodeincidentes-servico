@@ -11,16 +11,18 @@ public class Log {
     private Integer id;
     private Date date;
     private String message;
-    @OneToOne
-    private User user;
+    private String type;
+    private String user;
 
 
-    public Log() {}
+    public Log() {
+    }
 
-    public Log(Integer id, Date date, String message, User user) {
+    public Log(Integer id, Date date, String message, String type, String user) {
         this.id = id;
         this.date = date;
         this.message = message;
+        this.type = type;
         this.user = user;
     }
 
@@ -48,11 +50,19 @@ public class Log {
         this.message = message;
     }
 
-    public User getUser() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 }
