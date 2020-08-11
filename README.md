@@ -37,7 +37,7 @@
 <p align="justify">O sistema utiliza processos ITIL que tem como principal objetivo restaurar a operação normal do serviço o mais rápido possível, minimizando os prejuízos à operação do negócio e garantindo assim o melhor nível de serviço e disponibilidade.</p>
 
 ## Verificação Sonar
-https://github.com/LucasDuarteInacio/gestaodeincidentes-servico/blob/development/verificacao_sonar.png
+<img src=https://github.com/LucasDuarteInacio/gestaodeincidentes-servico/blob/development/verificacao_sonar.png>
 
 
 ## Aplicação
