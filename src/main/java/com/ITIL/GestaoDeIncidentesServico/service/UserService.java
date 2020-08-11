@@ -3,13 +3,13 @@ package com.ITIL.GestaoDeIncidentesServico.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.ITIL.GestaoDeIncidentesServico.entity.Ticket;
+import com.ITIL.GestaoDeIncidentesServico.exception.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import  com.ITIL.GestaoDeIncidentesServico.entity.Level;
 import  com.ITIL.GestaoDeIncidentesServico.entity.User;
-import  com.ITIL.GestaoDeIncidentesServico.exception.ApiException;
 import  com.ITIL.GestaoDeIncidentesServico.repository.UserRepository;
 
 @Service
@@ -26,21 +26,16 @@ public class UserService {
 		return repository.findAll();
 	}
 
-	public User findById(Integer id) {
-		return repository.findById(id).get();
+	public User findById(Integer idUser) {
+		Optional<User> ticket = repository.findById(idUser);
+		return ticket.orElseThrow(() -> new ApiException("Usuario com id: " + idUser + " não encontrado!",
+				"Tipo: " + User.class.getName(), HttpStatus.NOT_FOUND.value()));
 	}
 
 	public User register(User user) {
 		user.setActive(true);
 
-		Level nivel = user.getLevel();
-
 		Optional<String> opt;
-
-		if ( user.getProfile() == "usuario") {
-			throw new ApiException("O perfil 'usuario' nao pode ser setado como: " + nivel.getDescription(),
-					"O nivel setado na classe usuario esta incorreto", HttpStatus.BAD_GATEWAY.value());
-		}
 
 		opt = repository.findByLoginAndActive(user.getLogin(), user.getActive());
 

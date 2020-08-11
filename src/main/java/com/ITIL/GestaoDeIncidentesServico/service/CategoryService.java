@@ -19,6 +19,12 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository repository;
 	
+	public Category findById(Integer idCategory){
+		Optional<Category> category = repository.findById(idCategory);
+		return category.orElseThrow(() -> new ApiException("Categoria com id: " + idCategory + " não encontrado!",
+				"Tipo: " + Category.class.getName(), HttpStatus.NOT_FOUND.value()));
+	}
+
 	public Category registerCategory(Category category){
 		
 		category.setActive(true);
@@ -38,8 +44,8 @@ public class CategoryService {
 		return repository.findByActive(true);
 	}
 	
-	public Category disabled(Category idCategory) {
-		Category category = repository.findById(idCategory.getId()).get();
+	public Category disabled(Category obj) {
+		Category category = findById(obj.getId());
 		category.setActive(false);
 		return repository.save(category);
 	}

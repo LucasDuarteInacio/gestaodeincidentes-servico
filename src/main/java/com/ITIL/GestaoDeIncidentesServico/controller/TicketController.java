@@ -29,7 +29,7 @@ public class TicketController {
 
 	@GetMapping("{id}")
 	public Ticket getTicketById(@PathVariable("id") Integer id){
-		return service.findTicketById(id);
+		return service.findById(id);
 	}
 
 	@PostMapping("update")

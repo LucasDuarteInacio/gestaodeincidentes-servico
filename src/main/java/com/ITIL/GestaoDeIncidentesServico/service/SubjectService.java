@@ -18,6 +18,12 @@ public class SubjectService {
 	@Autowired
 	SubjectRepository repository;
 
+	public Subject findById(Integer idSubject){
+		Optional<Subject> subject = repository.findById(idSubject);
+		return subject.orElseThrow(() -> new ApiException("Assunto com id: " + idSubject + " não encontrado!",
+				"Tipo: " + Subject.class.getName(), HttpStatus.NOT_FOUND.value()));
+	}
+
 	public Subject registerSubject(Subject subject) {
 		subject.setActive(true);
 		Optional<Subject> opt;
@@ -39,8 +45,8 @@ public class SubjectService {
 		return repository.findByActive(true);
 	}
 
-	public Subject disabled(Subject idSubject) {
-		Subject subject = repository.findById(idSubject.getId()).get();
+	public Subject disabled(Subject obj) {
+		Subject subject = findById(obj.getId());
 		subject.setActive(false);
 		return repository.save(subject);
 	}
