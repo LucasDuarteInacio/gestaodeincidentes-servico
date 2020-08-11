@@ -23,7 +23,9 @@
   <a href="https://swagger.io/">
     <img src="https://img.shields.io/static/v1?label=swagger&message=framework&color=green&style=for-the-badge&logo=SWAGGER"/>
   </a>
-    <img src="http://img.shields.io/static/v1?label=STATUS&message=em andamento&color=blue&style=for-the-badge"/>
+  <a href="">
+    <img src="http://img.shields.io/static/v1?label=STATUS&message=Desenvolvimento&color=blue&style=for-the-badge"/>
+  </a>
 </p>
 
 ## Tópicos
